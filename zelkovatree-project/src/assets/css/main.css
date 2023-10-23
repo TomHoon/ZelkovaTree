@@ -22,8 +22,13 @@ body {
 
 .top-cover {
     width: 100%;
-    height: 40px;
-    background: #2484d0;
+    height: 60px;
+    padding: 10px;
+    background: #ffffff;
+}
+
+.top-wrapper {
+    padding: 20px;
 }
 
 .header-wrapper {
@@ -37,7 +42,7 @@ body {
     width: 100%;
     background: white;
     height: 108px;
-    padding: 10px;
+    padding: 20px;
     margin: 0 auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -179,6 +184,7 @@ hr {
     border-radius: 80px;
     transition: all 0.2s linear;
     cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .main-icons-ul li:hover {
@@ -199,7 +205,7 @@ hr {
     height: 100%;
     opacity: 0.2;
     --background-image: url("http://www.communitycenter.or.kr/theme/mir/img/index/main_sub_bg.png");
-    background-image:url("../img/footer-background.png");
+    --background-image:url("../img/footer-background.png");
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: 1900px;
@@ -221,8 +227,27 @@ hr {
     display: flex;
     gap: 80px;
 }
-
+.notice1:before {
+    content: '';
+    display: block;
+    border-radius: 40px;
+    position: absolute;
+    left: -40px;
+    top: -20px;
+    width: 690px;
+    height: 340px;
+    opacity: 0.2;
+    --background-image: url(http://www.communitycenter.or.kr/theme/mir/img/index/main_sub_bg.png);
+    background-image: url(http://localhost:8080/img/footer-background.09d62d5a.png);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    --background-size: 1900px;
+    background-size: cover;
+    z-index: -9999;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .notice1 {
+    position: relative;
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 610px;
     height: 260px;
@@ -238,12 +263,14 @@ hr {
     font-weight: 700;
 }
 .notice1-subtit1 {
+    cursor: pointer;
 
 }
 .notice1-subtit2 {
+    cursor: pointer;
     margin-left:15px;
 }
-.active-tit {
+.activeTit {
     text-decoration:underline;
     text-underline-offset:9px;
     font-weight: 700;
@@ -255,9 +282,28 @@ hr {
     height: 1px;
     background: #023e8a;
 }
-
+.notice2:before {
+    content: '';
+    display: block;
+    border-radius: 40px;
+    position: absolute;
+    left: -10px;
+    top: -20px;
+    width: 690px;
+    height: 340px;
+    opacity: 0.2;
+    --background-image: url(http://www.communitycenter.or.kr/theme/mir/img/index/main_sub_bg.png);
+    background-image: url(http://localhost:8080/img/footer-background.09d62d5a.png);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    --background-size: 1900px;
+    background-size: cover;
+    z-index: -9999;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 .notice2 {
     --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgb(186, 243, 157);
+    position: relative;
     width: 610px;
     height: 260px;
     border-radius: 10px;
@@ -273,6 +319,7 @@ hr {
 }
 
 .plus-btn {
+    cursor: pointer;
     position: absolute;
     right: 25px;
 }
@@ -285,6 +332,8 @@ hr {
 .notice-ul li {
     position: relative;
     color: #666;
+    border-bottom: 1px dotted #ecd8b8;
+    padding-bottom: 13px;
 }
 
 .notice-ul li:not(:first-child) {
@@ -299,7 +348,7 @@ hr {
 .notice-main-tit {
     text-align: center;
     font-size: 33px;
-    margin: 33px auto 22px auto;
+    margin: -124px auto 32px auto;
     width: 1400px;
     font-family: 'KCC-Ganpan';
 }

@@ -33,6 +33,7 @@ body {
 
 .wrap {
     width: 100%;
+    padding-top: 99px;
     min-width: 1400px;
 }
 
@@ -282,7 +283,11 @@ hr {
     z-index: -9999;
     top: 10px;
 }
+.board-right-table-tr {
+    cursor: pointer;
+}
 .board-right-tit {
+    position: relative;
     border-bottom: 2px solid #ddd;
     margin-top: 40px;
     margin-bottom: 20px;
@@ -352,4 +357,54 @@ hr {
 .pagination-ul li button:hover {
     background: #2484d0;
     color: white;
+}
+.write-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 9px;
+    font-size: 15px;
+    border: 1px solid #ddd;
+    padding: 4px;
+    border-radius: 10px;
+}
+.write-btn:hover {
+    color:white;
+    background-color: #7acbc7;
+}
+
+/*board-write 시작*/
+
+.board-right-write {
+    height: 1000px;
+    position: relative;
+    float: right;
+    width: 70%;
+    margin-left:10px;
+}
+
+.button-wrapper {
+    position: relative;
+    margin-top:15px;
+}
+.file-add-btn, .write-decision-btn {
+    background:none;
+    border: none;
+    font-size: 19px;
+}
+.clip-img:hover {
+    cursor: pointer;
+}
+.write-decision-btn {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    border-radius: 14px;
+    padding: 10px;
+    color:white;
+    background: rgba(124, 148, 225, 0.87);
+}
+.write-decision-btn:hover {
+    color:white;
+    background: rgba(158, 177, 246, 0.87);
 }

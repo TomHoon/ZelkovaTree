@@ -83,7 +83,7 @@
 				</div>
 			</div>
 		</div>
-	
+
 		<!--느티나무활동 시작-->
 		<div class="active-wrapper">
 			<div class="active-area">
@@ -127,15 +127,15 @@
 			</div>
 		</div>
 		<!--느티나무활동 끝-->
-	
+
 		<!--공지사항 시작-->
 			<div class="notice-wrapper">
 				<p class="notice-main-tit">느티나무 소식</p>
 				<div class="notice-area">
 					<div class="notice1">
 						<p class="notice1-p">
-							<span class="notice1-subtit1 active-tit">공지사항</span>
-							<span class="notice1-subtit2">채용공고</span>
+							<span class="notice1-subtit1" :class="{ activeTit : activeSubtit == 1 }" @click="activeSubtit = 1">공지사항</span>
+							<span class="notice1-subtit2" :class="{ activeTit : activeSubtit == 2 }" @click="activeSubtit = 2">채용공고</span>
 							<svg class="plus-btn" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
 									 viewBox="0,0,256,256">
 								<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
@@ -152,7 +152,7 @@
 							</svg>
 						</p>
 	<!--					<div class="hr-area"></div>-->
-						<div class="notice-ul">
+						<div class="notice-ul" v-if="activeSubtit == 1">
 							<ul>
 								<li>
 									<p>
@@ -164,6 +164,26 @@
 										</span>
 									</p>
 								</li>
+                <li>
+                  <p>
+										<span>
+											[공연 안내] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
+										</span>
+                    <span class="notice-ul-date">
+											2023-10-09
+										</span>
+                  </p>
+                </li>
+                <li>
+                  <p>
+										<span>
+											[공연 안내] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
+										</span>
+                    <span class="notice-ul-date">
+											2023-10-09
+										</span>
+                  </p>
+                </li>
 							</ul>
 						</div>
 					</div>
@@ -223,7 +243,7 @@
 							<span>이메일: 031-796-0005</span>
 						</p>
 						<p class="facility-info">
-							<span>이사장: 방성일 담임목사</span>
+							<span>이사장: 방[성일 담임목사</span>
 						</p>
 					</li>
 					<li>
@@ -251,7 +271,7 @@
 	export default {
 		data() {
 			return {
-				
+        activeSubtit: 1
 			}
 		},
 		methods: {

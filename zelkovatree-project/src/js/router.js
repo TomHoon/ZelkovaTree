@@ -4,6 +4,7 @@ import Index from '../components/Index.vue'
 import Guide from '../components/Guide.vue'
 import Board from '../components/Board.vue'
 import BoardDetail from '../components/BoardDetail.vue'
+import BoardWrite from '../components/BoardWrite.vue'
 
 const routes = [ 
     {
@@ -25,6 +26,11 @@ const routes = [
         path: '/boardDetail',
         name: BoardDetail,
         component: BoardDetail
+    },
+    {
+        path: '/boardWrite',
+        name: BoardWrite,
+        component: BoardWrite
     }
 ];
 

@@ -1,7 +1,13 @@
 <template>
     <div class="fixed-menu-wrapper">
         <div class="top-cover">
-
+              <div class="top-wrapper">
+                <ul class="header-right">
+                  <li>홈으로</li>
+                  <li>로그인</li>
+                  <li>회원가입</li>
+                </ul>
+              </div>
         </div>
         <div class="header">
             <div class="header-wrapper">

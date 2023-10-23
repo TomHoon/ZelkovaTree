@@ -34,6 +34,7 @@
                     <div class="border-div"></div>
                     <div class="board-right-tit">
                         <h2>공지사항</h2>
+                        <button @click="goPage('boardWrite')" class="write-btn">글쓰기</button>
                     </div>
                     <div class="board-right-table-wrapper">
                         <table class="user-info-price">
@@ -47,8 +48,8 @@
                             </tr>
                             </thead>
                             <tbody>
-                              <tr v-for="item in boardList" :key="item" @click="goDetail(item.번호)">
-                                <td>{{ item.번호 }}</td>
+                              <tr v-for="(item, index) in boardList" :key="item" class="board-right-table-tr" @click="goDetail(item.번호)">
+                                <td>{{ index + 1 }}</td>
                                 <td>{{ item.제목 }}</td>
                                 <td>{{ item.작성자 }}</td>
                                 <td>{{ item.작성일 }}</td>
@@ -139,7 +140,7 @@ export default {
     },
 
     mounted() {
-        for(let i =0; i <= 10; i ++) {
+        for(let i =0; i < 9; i ++) {
           this.boardList.push(this.boardList[0]);
         }
     },
@@ -147,6 +148,9 @@ export default {
     methods: {
       goDetail(boardIdx) {
         this.$router.push('/boardDetail');
+      },
+      goPage(pageName) {
+        this.$router.push(pageName);
       }
     },
 };
