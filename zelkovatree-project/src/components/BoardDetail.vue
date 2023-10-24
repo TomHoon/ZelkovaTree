@@ -56,7 +56,7 @@
                 </tr>
                 <tr>
                   <td>
-                    <div class="board-detail-content-area" v-html="this.test.content">
+                    <div class="board-detail-content-area" v-html="this.content">
 
                     </div>
 <!--                    <p>-->
@@ -76,7 +76,7 @@
               </tbody>
             </table>
             <div class="board-detail-list-btn-wrapper" v-cursor>
-              <button class="board-detail-list-btn">
+              <button class="board-detail-list-btn" @click="goPage('/board')">
                 목록
               </button>
             </div>
@@ -154,13 +154,20 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      test: {}
+      content: {}
     }
   },
   async mounted() {
-    const res = await axios.get('getBoard');
-    this.test = res.data[res.data.length-1];
-    console.log(this.test);
+    let param = {
+      bno: this.$route.query.bno
+    };
+    const { data } = await axios.post('/getBoardDetail', param);
+    this.content = data.content;
+  },
+  methods: {
+    goPage(pageName) {
+      this.$router.push(pageName);
+    }
   }
 }
 </script>

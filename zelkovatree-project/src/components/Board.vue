@@ -48,7 +48,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                              <tr v-for="(item, index) in boardList.slice(boardList.length-10, boardList.length)" :key="item" class="board-right-table-tr" @click="goDetail(item.번호)">
+                              <tr v-for="(item, index) in boardList.slice(boardList.length-10, boardList.length)" :key="item" class="board-right-table-tr" @click="goDetail(item.bno)">
                                 <td>{{ item.bno}}</td>
                                 <td>{{ item.title }}</td>
                                 <td>{{ item.author || '관리자' }}</td>
@@ -138,8 +138,8 @@ export default {
     },
 
     methods: {
-      goDetail(boardIdx) {
-        this.$router.push('/boardDetail');
+      goDetail(bno) {
+        this.$router.push({name: 'BoardDetail', query: {bno: bno}});
       },
       goPage(pageName) {
         this.$router.push(pageName);

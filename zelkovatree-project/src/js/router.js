@@ -9,27 +9,27 @@ import BoardWrite from '../components/BoardWrite.vue'
 const routes = [ 
     {
         path: '/',
-        name: Index,
+        name: 'Index',
         component: Index
     },
     {
         path: '/guide',
-        name: Guide,
+        name: 'Guide',
         component: Guide
     },
     {
         path: '/board',
-        name: Board,
+        name: 'Board',
         component: Board
     },
     {
         path: '/boardDetail',
-        name: BoardDetail,
+        name: 'BoardDetail',
         component: BoardDetail
     },
     {
         path: '/boardWrite',
-        name: BoardWrite,
+        name: 'BoardWrite',
         component: BoardWrite
     }
 ];

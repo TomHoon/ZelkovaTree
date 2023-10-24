@@ -49,7 +49,7 @@
                 </div>
                 <div class="button-wrapper">
 <!--                  <button class="file-add-btn" @click="check"><img class="clip-img" width="40" height="40" src="https://img.icons8.com/color/48/attach.png" alt="attach"/></button>-->
-                  <button @click="enrollBoard" class="write-cancel-btn">취소</button>
+                  <button @click="goPage('/board')" class="write-cancel-btn">취소</button>
                   <button @click="enrollBoard" class="write-decision-btn">등록</button>
                 </div>
               </div>
@@ -205,9 +205,7 @@ export default {
         console.log(formData);
       // .querySelector('.ql-editor').innerHTML('<h2>hi</h2>');
         const editor = this.$refs.quillRef.getEditor();
-        console.log(editor);
         let test = editor.querySelector(".ql-blank");
-        console.log(test);
         const result = await axios.post('/addBoard', formData);
         test.innerHTML += `<img style="max-width:1100px; max-height:1100px;" src="image/${result.data}"></img>`;
         // try {
@@ -238,7 +236,7 @@ export default {
     uploadFunction(e) {
       console.log('e >>> ', e);
     },
-    enrollBoard() {
+    async enrollBoard() {
       const html = this.$refs.quillRef.getHTML();
       console.log('content >>> ', html);
       this.content = html;
@@ -246,7 +244,9 @@ export default {
       const formData = new FormData();
       formData.append('param', JSON.stringify({title:this.title, content:this.content}));
 
-      axios.post('/enrollBoard', formData);
+      await axios.post('/enrollBoard', formData)
+          .then(res => this.$router.push('/board'));
+
     }
   },
 };
