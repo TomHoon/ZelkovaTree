@@ -48,12 +48,12 @@
                             </tr>
                             </thead>
                             <tbody>
-                              <tr v-for="(item, index) in boardList" :key="item" class="board-right-table-tr" @click="goDetail(item.번호)">
-                                <td>{{ index + 1 }}</td>
-                                <td>{{ item.제목 }}</td>
-                                <td>{{ item.작성자 }}</td>
-                                <td>{{ item.작성일 }}</td>
-                                <td>{{ item.조회수 }}</td>
+                              <tr v-for="(item, index) in boardList.slice(boardList.length-10, boardList.length)" :key="item" class="board-right-table-tr" @click="goDetail(item.번호)">
+                                <td>{{ item.bno}}</td>
+                                <td>{{ item.title }}</td>
+                                <td>{{ item.author || '관리자' }}</td>
+                                <td>{{ item.write_date }}</td>
+                                <td>{{ item.hit || 0 }}</td>
                               </tr>
                             </tbody>
                         </table>
@@ -122,27 +122,19 @@
 </template>
 
 <script>
+import axios from 'axios';
 export default {
     name: 'Board',
 
     data() {
         return {
-            boardList: [
-              {
-                번호: 1,
-                제목: '‘심한 장애’ 빈곤층 장애인 15.5만명 장애인연금 사각지대 방치',
-                작성자: '김동윤',
-                작성일: '2023-10-20',
-                조회수: 92
-              }
-            ]
+            boardList: []
         };
     },
 
-    mounted() {
-        for(let i =0; i < 9; i ++) {
-          this.boardList.push(this.boardList[0]);
-        }
+    async mounted() {
+        const res = await axios.get('/getBoard');
+        this.boardList = res.data;
     },
 
     methods: {

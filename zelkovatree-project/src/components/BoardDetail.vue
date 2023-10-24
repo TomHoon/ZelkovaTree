@@ -56,18 +56,21 @@
                 </tr>
                 <tr>
                   <td>
-                    <p>
-                      <img src="https://bsrehab.or.kr/data/webEditor/20230906134729.png" alt="">
-                    </p>
-                    <pre class="board-detail-content">
-                      1. 모집기간: 상시
-                      2. 대      상: 성인(만18세 이상) 발달장애인
-                      3. 이용시간: 월요일~금요일(10:00~17:00)
-                      4. 이용절차: 상담문의(전화, 방문) → 상담예약(방문일시) → 방문상담(접수, 초기상담) → 예비이용기간(4주이용) → 선정심사회의 → 서비스이용
-                      5. 대기자등록: 부산시 장애인주간보호바로가기 홈페이지
-                      6. 주 소: 부산광역시 동래구 사직북로 63번길 20-7, 사직복지관 3층
-                      7. 상담문의: 사직장애인주간보호센터(☎ 051-506-3418)
-                    </pre>
+                    <div class="board-detail-content-area" v-html="this.test.content">
+
+                    </div>
+<!--                    <p>-->
+<!--                      <img src="https://bsrehab.or.kr/data/webEditor/20230906134729.png" alt="">-->
+<!--                    </p>-->
+<!--                    <pre class="board-detail-content">-->
+<!--                      1. 모집기간: 상시-->
+<!--                      2. 대      상: 성인(만18세 이상) 발달장애인-->
+<!--                      3. 이용시간: 월요일~금요일(10:00~17:00)-->
+<!--                      4. 이용절차: 상담문의(전화, 방문) → 상담예약(방문일시) → 방문상담(접수, 초기상담) → 예비이용기간(4주이용) → 선정심사회의 → 서비스이용-->
+<!--                      5. 대기자등록: 부산시 장애인주간보호바로가기 홈페이지-->
+<!--                      6. 주 소: 부산광역시 동래구 사직북로 63번길 20-7, 사직복지관 3층-->
+<!--                      7. 상담문의: 사직장애인주간보호센터(☎ 051-506-3418)-->
+<!--                    </pre>-->
                   </td>
                 </tr>
               </tbody>
@@ -145,5 +148,19 @@
 </template>
 <style scoped src="../assets/css/boardDetail.css">
 </style>
-<script setup>
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      test: {}
+    }
+  },
+  async mounted() {
+    const res = await axios.get('getBoard');
+    this.test = res.data[res.data.length-1];
+    console.log(this.test);
+  }
+}
 </script>
