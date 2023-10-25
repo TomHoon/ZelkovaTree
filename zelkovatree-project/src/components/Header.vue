@@ -17,11 +17,10 @@
                 <div class="ul-wrapper">
                     <ul class="header-right">
                         <li @click="goPage('guide')">이용안내</li>
-                        <li>사업안내</li>
-                        <li>느티나무소식</li>
+                        <li @click="goPage('gallery')">느티나무소식</li>
                         <li>기관소개</li>
                         <li>후원&자원봉사</li>
-                        <li @click="goPage('board')">게시판</li>
+                        <li @click="goPage('board')">알림마당</li>
                     </ul>
                 </div>
             </div>

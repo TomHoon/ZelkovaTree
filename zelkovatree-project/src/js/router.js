@@ -5,6 +5,7 @@ import Guide from '../components/Guide.vue'
 import Board from '../components/Board.vue'
 import BoardDetail from '../components/BoardDetail.vue'
 import BoardWrite from '../components/BoardWrite.vue'
+import Gallery from '../components/Gallery.vue'
 
 const routes = [ 
     {
@@ -31,6 +32,11 @@ const routes = [
         path: '/boardWrite',
         name: 'BoardWrite',
         component: BoardWrite
+    },
+    {
+        path: '/gallery',
+        name: 'Gallery',
+        component: Gallery
     }
 ];
 
