@@ -1,13 +1,6 @@
 <template>
     <div class="fixed-menu-wrapper">
         <div class="top-cover">
-              <div class="top-wrapper">
-                <ul class="header-right">
-                  <li>홈으로</li>
-                  <li>로그인</li>
-                  <li>회원가입</li>
-                </ul>
-              </div>
         </div>
         <div class="header">
             <div class="header-wrapper">
@@ -21,12 +14,19 @@
                         <li>기관소개</li>
                         <li>후원&자원봉사</li>
                         <li @click="goPage('board')">알림마당</li>
+                        <li class="menu-bar">
+                          <i class='bx bx-menu'></i>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
       <div class="hover-down">
 
+      </div>
+
+      <div class="temp-hide-screen">
+        
       </div>
 
     </div>

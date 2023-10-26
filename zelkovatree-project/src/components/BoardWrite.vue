@@ -33,6 +33,15 @@
         <div class="board-right-write">
           <div class="border-div"></div>
           <div class="board-right-tit">
+            <div class="category-selector-area">
+              <v-select
+                label="카테고리"
+                style="width:200px"
+                :items="selectItems"
+                variant="solo-filled"
+                v-model="category"
+              ></v-select>
+            </div>
             <input type="text" v-model="title" placeholder="제목을 입력해주세요." class="board-write-input">
           </div>
           <div class="board-right-table-wrapper">
@@ -42,14 +51,10 @@
                               ref="quillRef"
                               @editorChange="onEditorChange($event)">
                 </quill-editor>
-<!--                <input type="file" id="getFile" @change="uploadFunction($event)" />-->
                 <div class="output ql-snow">
-<!--                  <div v-html="content"></div>-->
-<!--                  <img src="imgtest" alt="">-->
                 </div>
                 <div class="button-wrapper">
-<!--                  <button class="file-add-btn" @click="check"><img class="clip-img" width="40" height="40" src="https://img.icons8.com/color/48/attach.png" alt="attach"/></button>-->
-                  <button @click="goPage('/board')" class="write-cancel-btn">취소</button>
+                  <v-btn @click="$router.go(-1)" class="write-cancel-btn">취소</v-btn>
                   <button @click="enrollBoard" class="write-decision-btn">등록</button>
                 </div>
               </div>
@@ -129,7 +134,9 @@ export default {
         }
       },
       content: "",
-      editor: ''
+      editor: '',
+      category: '활동사진',
+      selectItems: ['공지사항', '가정통신문', '채용게시판', '활동사진']
     };
   },
 
@@ -251,7 +258,7 @@ export default {
       await axios.post('/enrollBoard', formData)
           .then(res => this.$router.push('/board'));
 
-    }
+    },
   },
 };
 </script>

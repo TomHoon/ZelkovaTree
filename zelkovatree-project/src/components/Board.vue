@@ -26,7 +26,7 @@
               <li class="active">공지사항</li>
               <li>가정통신문</li>
               <li>채용게시판</li>
-              <li>출석</li>
+              <!-- <li>출석</li> -->
             </ul>
           </div>
         </div>

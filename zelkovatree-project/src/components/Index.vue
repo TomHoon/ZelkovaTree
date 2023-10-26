@@ -26,7 +26,10 @@
 		<Header/>
 	<!--	<hr>-->
 		<div class="main-imgs">
-			<img src="../assets/img/slick-img.jpg" alt="">
+<!--			<img src="../assets/img/slick-img.jpg" alt="">-->
+      <div class="main-banner-wrapper">
+			  <img class="main-banner-img" src="../assets/img/느티나무카페배너.png" alt="">
+      </div>
 		</div>
 	<!--	<hr>-->
 	
@@ -274,6 +277,8 @@
         activeSubtit: 1
 			}
 		},
+    mounted() {
+    },
 		methods: {
 			goPage(direction) {
 				console.log('direction >>> ', direction);

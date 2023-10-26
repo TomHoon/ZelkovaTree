@@ -57,7 +57,7 @@
 
               <div class="list-wrap">
                 <div class="img-wrapper">
-                  <img src="@/assets/img/1122.png" alt="">
+                  <img class="gallery-img" src="test.jpg" alt="">
                 </div>
                 <a href="">
                   <div class="gallery-tit-wrap">
@@ -74,7 +74,7 @@
 
               <div class="list-wrap">
                 <div class="img-wrapper">
-                  <img src="@/assets/img/1122.png" alt="">
+                  <img class="gallery-img" src="test.jpg" alt="">
                 </div>
                 <a href="">
                   <div class="gallery-tit-wrap">
@@ -91,7 +91,7 @@
 
               <div class="list-wrap">
                 <div class="img-wrapper">
-                  <img src="@/assets/img/1122.png" alt="">
+                  <img class="gallery-img" src="test.jpg" alt="">
                 </div>
                 <a href="">
                   <div class="gallery-tit-wrap">
@@ -108,7 +108,7 @@
 
               <div class="list-wrap">
                 <div class="img-wrapper">
-                  <img src="@/assets/img/1122.png" alt="">
+                  <img class="gallery-img" src="test.jpg" alt="">
                 </div>
                 <a href="">
                   <div class="gallery-tit-wrap">
@@ -125,7 +125,115 @@
 
               <div class="list-wrap">
                 <div class="img-wrapper">
-                  <img src="@/assets/img/1122.png" alt="">
+                  <img class="gallery-img" src="test.jpg" alt="">
+                </div>
+                <a href="">
+                  <div class="gallery-tit-wrap">
+                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
+                    <div class="gallery-subtit-area">
+                      <p class="gallery-subtit">
+                        <i class='bx bx-calendar-alt'></i>
+                        <span>2023-10-26</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              
+              <div class="list-wrap">
+                <div class="img-wrapper">
+                  <img class="gallery-img" src="test.jpg" alt="">
+                </div>
+                <a href="">
+                  <div class="gallery-tit-wrap">
+                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
+                    <div class="gallery-subtit-area">
+                      <p class="gallery-subtit">
+                        <i class='bx bx-calendar-alt'></i>
+                        <span>2023-10-26</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              
+              <div class="list-wrap">
+                <div class="img-wrapper">
+                  <img class="gallery-img" src="test.jpg" alt="">
+                </div>
+                <a href="">
+                  <div class="gallery-tit-wrap">
+                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
+                    <div class="gallery-subtit-area">
+                      <p class="gallery-subtit">
+                        <i class='bx bx-calendar-alt'></i>
+                        <span>2023-10-26</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              
+              <div class="list-wrap">
+                <div class="img-wrapper">
+                  <img class="gallery-img" src="test.jpg" alt="">
+                </div>
+                <a href="">
+                  <div class="gallery-tit-wrap">
+                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
+                    <div class="gallery-subtit-area">
+                      <p class="gallery-subtit">
+                        <i class='bx bx-calendar-alt'></i>
+                        <span>2023-10-26</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              
+              <div class="list-wrap">
+                <div class="img-wrapper">
+                  <img class="gallery-img" src="test.jpg" alt="">
+                </div>
+                <a href="">
+                  <div class="gallery-tit-wrap">
+                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
+                    <div class="gallery-subtit-area">
+                      <p class="gallery-subtit">
+                        <i class='bx bx-calendar-alt'></i>
+                        <span>2023-10-26</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              
+              <div class="list-wrap">
+                <div class="img-wrapper">
+                  <img class="gallery-img" src="test.jpg" alt="">
+                </div>
+                <a href="">
+                  <div class="gallery-tit-wrap">
+                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
+                    <div class="gallery-subtit-area">
+                      <p class="gallery-subtit">
+                        <i class='bx bx-calendar-alt'></i>
+                        <span>2023-10-26</span>
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              
+              <div class="list-wrap">
+                <div class="img-wrapper">
+                  <img class="gallery-img" src="test.jpg" alt="">
                 </div>
                 <a href="">
                   <div class="gallery-tit-wrap">

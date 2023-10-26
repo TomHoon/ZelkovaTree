@@ -4,22 +4,22 @@
         <hr>
         <div class="main-imgs">
             <div class="guide-box">
-                <h2>이용안내</h2>
+                <h2>{{listData[activePage]}}</h2>
             </div>
         </div>
         <div class="category-area">
             <ul class="category-ul">
-                <li class="active">이용안내</li>
-                <li>법인소개</li>
-                <li>기관소개</li>
-                <li>조직도</li>
+                <li v-for="(item, index) in listData" :key="index" @click="goPage(index)" :class="{ active: activePage == index }">{{item}}</li>
             </ul>
         </div>
         <hr>
 
         <div class="main-wrapper">
             <div class="main-area">
-              <div v-if="active == 0">
+                
+
+            <!-- 🍖이용안내 시작 -->
+              <div v-if="activePage == 0">
                 <div class="user-info">
                     <p>
                         <span>복지관 이용안내</span>
@@ -161,9 +161,50 @@
                     </ul>
                 </div>
             </div>
-              <div v-if="active == 4">
+            <!-- 🍖이용안내 끝 -->
+
+            <!-- 👩시설안내 시작 -->
+              <div v-if="activePage == 1">
 
               </div>
+            <!-- 👩시설안내 끝 -->
+
+            <!-- 🎅오시는길 시작 -->
+              <div v-if="activePage == 2">
+                <div class="map-wrapper">
+                    <div class="map-maintit-area">
+                        <ul class="map-main-tit-ul">
+                            <li class="map-main-info-wrapper">
+                                <i class='bx bx-map'></i>
+                                <span class="map-subtit">지도안내</span>
+                                <div class="splitter-content"></div>
+                            </li>
+                            <li class="map-address-wrapper">
+                                <p class="map-address-area">
+                                    <span class="map-address-main-tit">주소</span>
+                                    <span class="map-address-sub-tit">(12936) 경기도 하남시 덕풍동로 53</span>
+                                </p>
+                            </li>
+                            <li class="map-phone-wrapper">
+                                <p class="map-phone-area">
+                                    <span class="map-phone-main-tit">전화</span>
+                                    <span class="map-phone-sub-tit">031-796-0005</span>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="map-area">
+                        <KakaoMap/>
+                    </div>
+                </div>
+              </div>
+            <!-- 🎅오시는길 끝 -->
+
+             <!-- 🍔조직도 시작 -->
+              <div v-if="activePage == 3">
+
+              </div>
+            <!-- 🍔조직도 끝 -->
            </div>
         </div>
 
@@ -210,19 +251,35 @@
 </template>
 
 <script>
+import KakaoMap from './KakaoMap.vue';
+
 export default {
+    components: {
+        KakaoMap
+    },
     data() {
         return {
-          active: 0
+          activePage: 2,
+          listData: ['이용안내', '시설안내', '오시는길', '조직도']
         };
     },
 
     mounted() {
+        // var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+        // var options = { //지도를 생성할 때 필요한 기본 옵션
+        //     center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+        //     level: 3 //지도의 레벨(확대, 축소 정도)
+        // };
+
+        // var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
         
     },
 
     methods: {
-        
+        goPage(activeNum) {
+            console.log(activeNum);
+            this.activePage = activeNum;
+        }
     },
 };
 </script>
