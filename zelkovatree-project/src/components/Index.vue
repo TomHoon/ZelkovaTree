@@ -38,7 +38,7 @@
 			<div class="main-area">
 				<div class="main-icons">
 					<ul class="main-icons-ul">
-						<li>
+						<li @click="goPage('Guide', 0)">
 							<a href="">
 								<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">
 									<path fill="#E8EAF6" d="M42 39L6 39 6 23 24 6 42 23z"></path>
@@ -52,7 +52,7 @@
 							</a>
 							<p>기관안내</p>
 						</li>
-						<li>
+            <li @click="goPage('Guide', 0)">
 							<a href="">
 								<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">
 									<path fill="#64b5f6" d="M31,14h13v-4c0-2.209-1.791-4-4-4h-9V14z"></path>
@@ -64,7 +64,7 @@
 							</a>
 							<p>이용안내</p>
 						</li>
-						<li>
+            <li @click="goPage('Guide', 2)">
 							<a href="">
 								<img src="../assets/img/color-address.png" alt="" style="width:50px; height: 50px">
 							</a>
@@ -232,30 +232,30 @@
 		<!--푸터시작-->
 		<div class="footer-area">
 			<div class="footer-ul-wrapper">
-				<ul>
-					<li>
-						<img src="../assets/img/느티나무마을아이콘.png" alt="">
+				<ul class="footer-ul">
+					<li style="width: 390px">
+						<img style="width: 220px" src="../assets/img/느티나무마을아이콘.png" alt="">
 					</li>
 					<li>
 						<p>
 							(12936) 경기도 하남시 덕풍동로 53
 						</p>
 						<p class="tel-info">
-							<span>전화: 031-796-0005</span>
-							<span>팩스: 031-796-0005</span>
-							<span>이메일: 031-796-0005</span>
+							<span>전화: 031-796-0005&nbsp;&nbsp;</span>
+							<span>팩스: 031-796-0005&nbsp;&nbsp;</span>
+							<span>이메일: 031-796-0005&nbsp;&nbsp;</span>
 						</p>
 						<p class="facility-info">
-							<span>이사장: 방[성일 담임목사</span>
+							<span>이사장: 방성일 담임목사</span>
 						</p>
 					</li>
 					<li>
 						<p>
-							<span>후원계좌</span>
-							<span class="margin-custom">농협 222-22-222222 계좌번호주인명</span>
+							<span>후원계좌:</span>
+							<span class="margin-custom">농협 222-22-222222 계좌번호 홍길동</span>
 						</p>
 						<p>
-							<span>후원문의</span>
+							<span>후원문의:</span>
 							<span class="margin-custom">031-796-0005</span>
 						</p>
 					</li>
@@ -264,7 +264,7 @@
 		</div>
 		<!--푸터끝-->
 	
-	
+
 		<div class="top-button-area">
 			<button>▲TOP</button>
 		</div>
@@ -280,9 +280,8 @@
     mounted() {
     },
 		methods: {
-			goPage(direction) {
-				console.log('direction >>> ', direction);
-				this.$router.push(`/${direction}`);
+			goPage(direction, activePage) {
+				this.$router.push({name: direction, query: {activePage: activePage}});
 			}
 		}
 	}

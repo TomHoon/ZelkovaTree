@@ -126,7 +126,7 @@ hr {
 }
 
 .footer-ul-wrapper {
-    width: 1060px;
+    width: 1700px;
     margin: 0 auto;
     padding-top: 50px;
 }
@@ -166,7 +166,7 @@ hr {
 .top-button-area button {
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 104px;
     background: none;
     font-size: 20px;
     border: 1px solid #ddd;
@@ -191,21 +191,35 @@ hr {
 
 .main-icons {
     width: 100%;
-    height: 160px;
     padding: 40px;
 }
 
+.main-icons-ul {
+    position: fixed;
+    right:75px;
+    bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    z-index: 999999999;
+    gap:15px;
+}
+@media(max-width: 1712px) {
+    .main-icons-ul {
+        display: none;
+    }
+}
 .main-icons-ul li {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-weight: 700;
     color: #6c5a5a;
     list-style: none;
-    float: left;
-    background: #ade8f4;
+    /*float: left;*/
+    /*background: #ade8f4;*/
     padding: 30px 40px;
     border-radius: 80px;
     transition: all 0.2s linear;
     cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
 }
 
 .main-icons-ul li:hover {
@@ -214,7 +228,7 @@ hr {
 }
 
 .main-icons-ul li:not(:first-child) {
-    margin-left: 120px;
+    /*margin-left: 120px;*/
 }
 .notice-wrapper:before {
     content: '';
@@ -481,4 +495,9 @@ hr {
 }
 .vselect{
     width: 150px;
+}
+.footer-ul {
+    height: 150px;
+    width: 1100px;
+    margin: 0 auto;
 }
