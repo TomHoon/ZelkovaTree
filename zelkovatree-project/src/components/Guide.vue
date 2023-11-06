@@ -259,14 +259,14 @@ export default {
     },
     data() {
         return {
-          activePage: 2,
+          activePage: 1,
           listData: ['이용안내', '시설안내', '오시는길', '조직도']
         };
     },
 
     mounted() {
       console.log(this.$route.query.activePage);
-      this.activePage = this.$route.query.activePage || 2;
+      this.activePage = this.$route.query.activePage || 0;
     },
 
     methods: {

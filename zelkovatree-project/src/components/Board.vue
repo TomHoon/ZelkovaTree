@@ -48,7 +48,7 @@
               </tr>
               </thead>
               <tbody>
-              <tr v-for="(item, index) in boardList.slice(boardList.length-10, boardList.length)" :key="item"
+              <tr v-for="(item, index) in boardList" :key="item"
                   class="board-right-table-tr" @click="goDetail(item.bno)">
                 <td>{{ item.bno }}</td>
                 <td>{{ item.title }}</td>

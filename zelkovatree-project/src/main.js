@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 import router from './js/router.js'
 
@@ -18,6 +19,7 @@ const vuetify = createVuetify({
 const app = createApp(App);
 
 app.component('Header', Header);
+app.component('Footer', Footer);
 
 app.use(vuetify);
 app.use(router);
