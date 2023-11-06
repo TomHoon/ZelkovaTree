@@ -1,6 +1,10 @@
 <template>
     <div class="fixed-menu-wrapper">
         <div class="top-cover">
+          <ul class="top-area">
+            <li>로그인 </li>
+            <li>회원가입</li>
+          </ul>
         </div>
         <div class="header">
             <div class="header-wrapper">

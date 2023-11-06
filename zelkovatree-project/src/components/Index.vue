@@ -87,6 +87,165 @@
 			</div>
 		</div>
 
+    <!--공지사항 시작-->
+    <div class="notice-wrapper">
+      <p class="notice-main-tit">느티나무 소식</p>
+      <div class="notice-area">
+        <div class="notice1">
+          <p class="notice-p">
+            <span class="notice1-subtit1" :class="{ activeTit : activeSubtit == 1 }" @click="activeSubtit = 1">공지사항</span>
+            <span class="notice1-subtit2" :class="{ activeTit : activeSubtit == 2 }" @click="activeSubtit = 2">채용공고</span>
+            <svg class="plus-btn" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
+                 viewBox="0,0,256,256">
+              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                 stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                 font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                <g transform="scale(5.33333,5.33333)">
+                  <path
+                      d="M44,24c0,11.045 -8.955,20 -20,20c-11.045,0 -20,-8.955 -20,-20c0,-11.045 8.955,-20 20,-20c11.045,0 20,8.955 20,20z"
+                      fill="#0077b6"></path>
+                  <path d="M21,14h6v20h-6z" fill="#ffffff"></path>
+                  <path d="M14,21h20v6h-20z" fill="#ffffff"></path>
+                </g>
+              </g>
+            </svg>
+          </p>
+          <!--					<div class="hr-area"></div>-->
+          <div class="notice-ul" v-if="activeSubtit == 1">
+            <ul>
+              <li>
+                <p>
+										<span>
+											[공지사항] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
+										</span>
+                  <span class="notice-ul-date">
+											2023-10-09
+										</span>
+                </p>
+              </li>
+              <li>
+                <p>
+										<span>
+											[공지사항] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
+										</span>
+                  <span class="notice-ul-date">
+											2023-10-09
+										</span>
+                </p>
+              </li>
+              <li>
+                <p>
+										<span>
+											[공지사항] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
+										</span>
+                  <span class="notice-ul-date">
+											2023-10-09
+										</span>
+                </p>
+              </li>
+              <li>
+                <p>
+										<span>
+											[공지사항] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
+										</span>
+                  <span class="notice-ul-date">
+											2023-10-09
+										</span>
+                </p>
+              </li>
+              <li>
+                <p>
+										<span>
+											[공지사항] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
+										</span>
+                  <span class="notice-ul-date">
+											2023-10-09
+										</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="notice2">
+          <p class="notice-p">
+            <span class="notice1-subtit1" :class="{ activeTit : activeSubtit2 == 1 }" @click="activeSubtit2 = 1">가정통신문</span>
+            <span class="notice1-subtit2" :class="{ activeTit : activeSubtit2 == 2 }" @click="activeSubtit2 = 2">후원의손길</span>
+            <svg class="plus-btn" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
+                 viewBox="0,0,256,256">
+              <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                 stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                 font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                <g transform="scale(5.33333,5.33333)">
+                  <path
+                      d="M44,24c0,11.045 -8.955,20 -20,20c-11.045,0 -20,-8.955 -20,-20c0,-11.045 8.955,-20 20,-20c11.045,0 20,8.955 20,20z"
+                      fill="#0077b6"></path>
+                  <path d="M21,14h6v20h-6z" fill="#ffffff"></path>
+                  <path d="M14,21h20v6h-20z" fill="#ffffff"></path>
+                </g>
+              </g>
+            </svg>
+          </p>
+          <!--					<div class="hr-area"></div>-->
+          <div class="notice-ul" v-if="activeSubtit2 == 1">
+            <ul>
+              <li>
+                <p>
+										<span>
+											[가정통신문] 10월 소식지 올려드립니다..
+										</span>
+                  <span class="notice-ul-date">
+											2023-10-09
+										</span>
+                </p>
+              </li>
+              <li>
+                <p>
+										<span>
+											[가정통신문] 9월 소식지 올려드립니다..
+										</span>
+                  <span class="notice-ul-date">
+											2023-10-09
+										</span>
+                </p>
+              </li>
+              <li>
+                <p>
+										<span>
+											[가정통신문] 8월 소식지 올려드립니다..
+										</span>
+                  <span class="notice-ul-date">
+											2023-10-09
+										</span>
+                </p>
+              </li>
+              <li>
+                <p>
+										<span>
+											[가정통신문] 7월 소식지 올려드립니다..
+										</span>
+                  <span class="notice-ul-date">
+											2023-10-09
+										</span>
+                </p>
+              </li>
+              <li>
+                <p>
+										<span>
+											[가정통신문] 6월 소식지 올려드립니다..
+										</span>
+                  <span class="notice-ul-date">
+											2023-10-09
+										</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--공지사항 끝-->
+
+
 		<!--느티나무활동 시작-->
 		<div class="active-wrapper">
 			<div class="active-area">
@@ -94,35 +253,11 @@
 					느티나무 활동사진
 				</p>
 				<ul class="active-img-slick">
-					<li>
+					<li v-for="(item, index) in slickData" :key=index>
 						<div class="img-slick-wrapper">
-							<img src="../assets/img/느티나무마을사진1.jpg" alt="">
+							<img :src="item.imgSrc" alt="">
 							<div class="img-slick-tit">
-								<p>하남시 장애인 한마음 체육대회</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="img-slick-wrapper">
-							<img src="../assets/img/느티나무마을사진2.jpg" alt="">
-							<div class="img-slick-tit">
-								<p>하남시 장애인 한마음 체육대회</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="img-slick-wrapper">
-							<img src="../assets/img/느티나무마을사진3.jpg" alt="">
-							<div class="img-slick-tit">
-								<p>하남시 장애인 한마음 체육대회</p>
-							</div>
-						</div>
-					</li>
-					<li>
-						<div class="img-slick-wrapper">
-							<img src="../assets/img/느티나무마을사진4.jpg" alt="">
-							<div class="img-slick-tit">
-								<p>하남시 장애인 한마음 체육대회</p>
+								<p>{{ item.imgTit }}</p>
 							</div>
 						</div>
 					</li>
@@ -131,104 +266,6 @@
 		</div>
 		<!--느티나무활동 끝-->
 
-		<!--공지사항 시작-->
-			<div class="notice-wrapper">
-				<p class="notice-main-tit">느티나무 소식</p>
-				<div class="notice-area">
-					<div class="notice1">
-						<p class="notice1-p">
-							<span class="notice1-subtit1" :class="{ activeTit : activeSubtit == 1 }" @click="activeSubtit = 1">공지사항</span>
-							<span class="notice1-subtit2" :class="{ activeTit : activeSubtit == 2 }" @click="activeSubtit = 2">채용공고</span>
-							<svg class="plus-btn" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-									 viewBox="0,0,256,256">
-								<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-									 stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-									 font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
-									<g transform="scale(5.33333,5.33333)">
-										<path
-											d="M44,24c0,11.045 -8.955,20 -20,20c-11.045,0 -20,-8.955 -20,-20c0,-11.045 8.955,-20 20,-20c11.045,0 20,8.955 20,20z"
-											fill="#0077b6"></path>
-										<path d="M21,14h6v20h-6z" fill="#ffffff"></path>
-										<path d="M14,21h20v6h-20z" fill="#ffffff"></path>
-									</g>
-								</g>
-							</svg>
-						</p>
-	<!--					<div class="hr-area"></div>-->
-						<div class="notice-ul" v-if="activeSubtit == 1">
-							<ul>
-								<li>
-									<p>
-										<span>
-											[공연 안내] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
-										</span>
-										<span class="notice-ul-date">
-											2023-10-09
-										</span>
-									</p>
-								</li>
-                <li>
-                  <p>
-										<span>
-											[공연 안내] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
-										</span>
-                    <span class="notice-ul-date">
-											2023-10-09
-										</span>
-                  </p>
-                </li>
-                <li>
-                  <p>
-										<span>
-											[공연 안내] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
-										</span>
-                    <span class="notice-ul-date">
-											2023-10-09
-										</span>
-                  </p>
-                </li>
-							</ul>
-						</div>
-					</div>
-					<div class="notice2">
-						<p class="notice2-p">
-							<span>느티나무소식</span>
-	<!--						<svg class="plus-btn" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"-->
-	<!--								 viewBox="0,0,256,256">-->
-	<!--							<g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"-->
-	<!--								 stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"-->
-	<!--								 font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">-->
-	<!--								<g transform="scale(5.33333,5.33333)">-->
-	<!--									<path-->
-	<!--										d="M44,24c0,11.045 -8.955,20 -20,20c-11.045,0 -20,-8.955 -20,-20c0,-11.045 8.955,-20 20,-20c11.045,0 20,8.955 20,20z"-->
-	<!--										fill="#0077b6"></path>-->
-	<!--									<path d="M21,14h6v20h-6z" fill="#ffffff"></path>-->
-	<!--									<path d="M14,21h20v6h-20z" fill="#ffffff"></path>-->
-	<!--								</g>-->
-	<!--							</g>-->
-	<!--						</svg>-->
-						</p>
-	<!--					<div class="hr-area"></div>-->
-						<div class="notice-ul">
-	
-	<!--						<ul>-->
-	<!--							<li>-->
-	<!--								<p>-->
-	<!--									<span>-->
-	<!--										[공연 안내] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」-->
-	<!--									</span>-->
-	<!--									<span class="notice-ul-date">-->
-	<!--										2023-10-09-->
-	<!--									</span>-->
-	<!--								</p>-->
-	<!--							</li>-->
-	<!--						</ul>-->
-						</div>
-					</div>
-				</div>
-			</div>
-		<!--공지사항 끝-->
-	
 		<!--푸터시작-->
 		<div class="footer-area">
 			<div class="footer-ul-wrapper">
@@ -274,7 +311,26 @@
 	export default {
 		data() {
 			return {
-        activeSubtit: 1
+        activeSubtit: 1,
+        activeSubtit2: 1,
+        slickData: [
+          {
+            imgSrc: require('../assets/img/느티나무마을사진1.jpg'),
+            imgTit: '하남시 장애인 한마음 체육대회'
+          },
+          {
+            imgSrc: require('../assets/img/느티나무마을사진2.jpg'),
+            imgTit: '도자기 체험'
+          },
+          {
+            imgSrc: require('../assets/img/느티나무마을사진3.jpg'),
+            imgTit: '옛날 전통 놀이'
+          },
+          {
+            imgSrc: require('../assets/img/느티나무마을사진4.jpg'),
+            imgTit: '구연 동화 시간'
+          },
+        ]
 			}
 		},
     mounted() {
