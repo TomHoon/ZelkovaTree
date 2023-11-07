@@ -23,17 +23,14 @@
           </div>
           <div class="board-left-ul">
             <ul>
-              <li class="active">공지사항</li>
-              <li>가정통신문</li>
-              <li>채용게시판</li>
-              <!-- <li>출석</li> -->
+              <li @click="chgAside(index)" :class="{active:page == index + 1}" v-for="(item, index) in asideList" :key="index">{{ item }}</li>
             </ul>
           </div>
         </div>
         <div class="board-right">
           <div class="border-div"></div>
           <div class="board-right-tit">
-            <h2>공지사항</h2>
+            <h2>{{ asideList[page-1] }}</h2>
             <button @click="goPage('boardWrite')" class="write-btn">글쓰기</button>
           </div>
           <div class="board-right-table-wrapper">
@@ -67,7 +64,7 @@
                 </button>
               </li>
               <li v-for="(item, index) in 10" :key="item">
-                <button @click="getBoard(index + 1)" :class="{active: index + 1 == page}">{{ item }}</button>
+                <button @click="getBoard(index + 1)" :class="{active: index + 1 == pagination}">{{ item }}</button>
               </li>
               <li>
                 <button>
@@ -81,44 +78,10 @@
     </div>
 
     <!--푸터시작-->
-    <div class="footer-area">
-      <div class="footer-ul-wrapper">
-        <ul>
-          <li>
-            <img src="../assets/img/느티나무마을아이콘.png" alt="">
-          </li>
-          <li>
-            <p>
-              (12936) 경기도 하남시 덕풍동로 53
-            </p>
-            <p class="tel-info">
-              <span>전화: 031-796-0005</span>
-              <span>팩스: 031-796-0005</span>
-              <span>이메일: 031-796-0005</span>
-            </p>
-            <p class="facility-info">
-              <span>이사장: 방성일 담임목사</span>
-            </p>
-          </li>
-          <li>
-            <p>
-              <span>후원계좌</span>
-              <span class="margin-custom">농협 222-22-222222 계좌번호주인명</span>
-            </p>
-            <p>
-              <span>후원문의</span>
-              <span class="margin-custom">031-796-0005</span>
-            </p>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <Footer @goTop="goTop"/>
     <!--푸터끝-->
 
 
-    <div class="top-button-area">
-      <button>▲TOP</button>
-    </div>
   </div>
 </template>
 
@@ -130,13 +93,17 @@ export default {
 
   data() {
     return {
+      asideList:['공지사항','가정통신문','채용게시판'],
       boardList: [],
-      page:1
-
+      page:1,
+      pagination: 1
     };
   },
 
   async mounted() {
+    if (this.$route.query?.activePage) {
+      this.page = this.$route.query?.activePage;
+    }
     const { data } = await axios.post("/getBoardByPage", { page: this.page });
     this.boardList = data;
   },
@@ -149,9 +116,27 @@ export default {
       this.$router.push(pageName);
     },
     async getBoard(page) {
-      this.page = page;
-      const { data } = await axios.post("/getBoardByPage", { page: this.page });
+      this.pagination = page;
+      const { data } = await axios.post("/getBoardByPage", { page: this.pagination });
       this.boardList = data;
+    },
+    goTop() {
+      window.scrollTo(0, 0);
+    },
+    async chgAside(index) {
+      this.page = index + 1;
+      switch (index + 1) {
+        case 1 :
+          const { data } = await axios.post("/getBoardByPage", { page: this.pagination });
+          this.boardList = data;
+          break;
+        case 2 :
+          this.boardList = []
+          break;
+        case 3 :
+          this.boardList = []
+          break;
+      }
     }
   },
 };

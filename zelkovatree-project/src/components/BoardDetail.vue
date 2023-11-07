@@ -19,11 +19,7 @@
           </div>
           <div class="board-left-ul">
             <ul>
-              <li class="active">지역별찾기</li>
-              <li>지역별찾기</li>
-              <li>지역별찾기</li>
-              <li>지역별찾기</li>
-              <li>지역별찾기</li>
+              <li @click="page = index + 1" :class="{active:page == index + 1}" v-for="(item, index) in asideList" :key="index">{{ item }}</li>
             </ul>
           </div>
         </div>
@@ -37,10 +33,10 @@
               <thead class="board-detail-thead">
                 <tr class="board-detail-tr">
                   <th class="board-detail-th">
-                    <p>사직장애인주간보호센터 이용자 모집</p>
+                    <p>{{ detailInfo.title }}</p>
                     <p>
-                      <span><b>작성자</b>: 이경남</span>
-                      <span class="board-detail-date"><b>작성일자</b>: 2023-09-06</span>
+                      <span><b>작성자</b>: {{ detailInfo.author }}</span>
+                      <span class="board-detail-date"><b>작성일자</b>: {{ detailInfo.write_date }}</span>
                     </p>
                   </th>
                 </tr>
@@ -49,14 +45,14 @@
               <tbody>
                 <tr>
                   <td>
-                    <p>
+                    <p style="cursor: pointer" v-if="1 == 0">
                       첨부파일: 사직장애인주간보호센터 이용자 모집 홍보지.pdf
                     </p>
                   </td>
                 </tr>
                 <tr>
                   <td>
-                    <div class="board-detail-content-area" v-html="this.content">
+                    <div class="board-detail-content-area" v-html="this.detailInfo.content">
 
                     </div>
 <!--                    <p>-->
@@ -106,44 +102,9 @@
     </div>
 
     <!--푸터시작-->
-    <div class="footer-area">
-      <div class="footer-ul-wrapper">
-        <ul>
-          <li>
-            <img src="../assets/img/느티나무마을아이콘.png" alt="">
-          </li>
-          <li>
-            <p>
-              (12936) 경기도 하남시 덕풍동로 53
-            </p>
-            <p class="tel-info">
-              <span>전화: 031-796-0005</span>
-              <span>팩스: 031-796-0005</span>
-              <span>이메일: 031-796-0005</span>
-            </p>
-            <p class="facility-info">
-              <span>이사장: 방성일 담임목사</span>
-            </p>
-          </li>
-          <li>
-            <p>
-              <span>후원계좌</span>
-              <span class="margin-custom">농협 222-22-222222 계좌번호주인명</span>
-            </p>
-            <p>
-              <span>후원문의</span>
-              <span class="margin-custom">031-796-0005</span>
-            </p>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <Footer @goTop="goTop"/>
     <!--푸터끝-->
 
-
-    <div class="top-button-area">
-      <button>▲TOP</button>
-    </div>
   </div>
 </template>
 <style scoped src="../assets/css/boardDetail.css">
@@ -154,7 +115,9 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      content: {}
+      detailInfo: {},
+      asideList:['공지사항','가정통신문','채용게시판'],
+      page: 1,
     }
   },
   async mounted() {
@@ -162,12 +125,15 @@ export default {
       bno: this.$route.query.bno
     };
     const { data } = await axios.post('/getBoardDetail', param);
-    this.content = data.content;
+    this.detailInfo = data;
   },
   methods: {
     goPage(pageName) {
       this.$router.push(pageName);
-    }
+    },
+    goTop() {
+      window.scrollTo(0, 0);
+    },
   }
 }
 </script>

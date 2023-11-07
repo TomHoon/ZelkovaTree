@@ -5,10 +5,10 @@ module.exports = defineConfig({
   lintOnSave:false,
   devServer: {
     // 💕운영
-    // proxy: 'http://gnsdl2846.cafe24.com' 
+    proxy: 'http://gnsdl2846.cafe24.com'
 
     // 💕개발
-    proxy: 'http://localhost:8082' 
+    // proxy: 'http://localhost:8082'
   }
 },
   {

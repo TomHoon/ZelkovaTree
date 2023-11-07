@@ -113,53 +113,13 @@
           <!--					<div class="hr-area"></div>-->
           <div class="notice-ul" v-if="activeSubtit == 1">
             <ul>
-              <li>
+              <li v-for="(item, index) in noticeList" :key="index" @click="goPage('Board', 1)">
                 <p>
 										<span>
-											[공지사항] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
+											{{ item.title }}
 										</span>
                   <span class="notice-ul-date">
-											2023-10-09
-										</span>
-                </p>
-              </li>
-              <li>
-                <p>
-										<span>
-											[공지사항] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
-										</span>
-                  <span class="notice-ul-date">
-											2023-10-09
-										</span>
-                </p>
-              </li>
-              <li>
-                <p>
-										<span>
-											[공지사항] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
-										</span>
-                  <span class="notice-ul-date">
-											2023-10-09
-										</span>
-                </p>
-              </li>
-              <li>
-                <p>
-										<span>
-											[공지사항] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
-										</span>
-                  <span class="notice-ul-date">
-											2023-10-09
-										</span>
-                </p>
-              </li>
-              <li>
-                <p>
-										<span>
-											[공지사항] 일본 배리어프리협회 주최 「제20주년 골드 콘서트」
-										</span>
-                  <span class="notice-ul-date">
-											2023-10-09
+											{{ item.write_date.split(" ")[0] }}
 										</span>
                 </p>
               </li>
@@ -186,7 +146,7 @@
             </svg>
           </p>
           <!--					<div class="hr-area"></div>-->
-          <div class="notice-ul" v-if="activeSubtit2 == 1">
+          <div class="notice-ul" v-if="activeSubtit2 == 1" @click="goPage('Board', 2)">
             <ul>
               <li>
                 <p>
@@ -253,7 +213,7 @@
 					느티나무 활동사진
 				</p>
 				<ul class="active-img-slick">
-					<li v-for="(item, index) in slickData" :key=index>
+					<li v-for="(item, index) in slickData" :key=index @click="goPage('Gallery')">
 						<div class="img-slick-wrapper">
 							<img :src="item.imgSrc" alt="">
 							<div class="img-slick-tit">
@@ -272,7 +232,9 @@
 	</div>
 </template>
 <script>
-	export default {
+	import axios from "axios";
+
+  export default {
 		data() {
 			return {
         activeSubtit: 1,
@@ -294,10 +256,13 @@
             imgSrc: require('../assets/img/느티나무마을사진4.jpg'),
             imgTit: '구연 동화 시간'
           },
-        ]
+        ],
+        noticeList: []
 			}
 		},
-    mounted() {
+    async mounted() {
+      const { data } = await axios.get("/getBoard");
+      this.noticeList = data;
     },
 		methods: {
 			goPage(direction, activePage) {

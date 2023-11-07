@@ -23,10 +23,7 @@
           </div>
           <div class="board-left-ul">
             <ul>
-              <li class="active">공지사항</li>
-              <li>프로그램안내</li>
-              <li>사진/영상마당</li>
-              <li>자료실</li>
+              <li @click="page = index + 1" :class="{active:page == index + 1}" v-for="(item, index) in asideList" :key="index">{{ item }}</li>
             </ul>
           </div>
         </div>
@@ -64,44 +61,8 @@
     </div>
 
     <!--푸터시작-->
-    <div class="footer-area">
-      <div class="footer-ul-wrapper">
-        <ul>
-          <li>
-            <img src="../assets/img/느티나무마을아이콘.png" alt="">
-          </li>
-          <li>
-            <p>
-              (12936) 경기도 하남시 덕풍동로 53
-            </p>
-            <p class="tel-info">
-              <span>전화: 031-796-0005</span>
-              <span>팩스: 031-796-0005</span>
-              <span>이메일: 031-796-0005</span>
-            </p>
-            <p class="facility-info">
-              <span>이사장: 방성일 담임목사</span>
-            </p>
-          </li>
-          <li>
-            <p>
-              <span>후원계좌</span>
-              <span class="margin-custom">농협 222-22-222222 계좌번호주인명</span>
-            </p>
-            <p>
-              <span>후원문의</span>
-              <span class="margin-custom">031-796-0005</span>
-            </p>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <Footer @goTop="goTop"/>
     <!--푸터끝-->
-
-
-    <div class="top-button-area">
-      <button>▲TOP</button>
-    </div>
   </div>
 </template>
 
@@ -119,7 +80,9 @@ export default {
 
   data() {
     return {
+      asideList:['공지사항','가정통신문','채용게시판'],
       title:'',
+      page: 1,
       imgtest: '',
       editorOption: {
         modules: {
@@ -213,12 +176,12 @@ export default {
         formData.append('uploadFile', file); // formData는 키-밸류 구조
         formData.append('param', JSON.stringify({title:'hihi'}));
         // 백엔드 multer라우터에 이미지를 보낸다.
-        console.log(formData);
+        // console.log(formData);
       // .querySelector('.ql-editor').innerHTML('<h2>hi</h2>');
       //   const editor = this.$refs.quillRef.getEditor();
         // let test = editor.querySelector(".ql-blank");
         const result = await axios.post('/addBoard', formData);
-        this.editor.innerHTML += `<img style="max-width:1100px; max-height:1100px;" src="image/${result.data}"></img><br><br><br><br>`;
+        this.editor.innerHTML += `<img style="max-width:807px; max-height:1077px; " src="image/${result.data}"></img><br><br><br><br>`;
         // try {
         //   const result = await axios.post('http://localhost:4050/addBoard', formData);
         //   console.log('성공 시, 백엔드가 보내주는 데이터', result.data.url);
@@ -253,12 +216,21 @@ export default {
       this.content = html;
 
       const formData = new FormData();
-      formData.append('param', JSON.stringify({title:this.title, content:this.content}));
+      let param = {
+        content: this.content,
+        title: this.title,
+        gubun: this.category,
+        author: '관리자'
+      }
+      formData.append('param', JSON.stringify(param));
 
       await axios.post('/enrollBoard', formData)
           .then(res => this.$router.push('/board'));
 
     },
+    goTop() {
+      window.scrollTo(0, 0);
+    }
   },
 };
 </script>

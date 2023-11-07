@@ -23,234 +23,87 @@
           </div>
           <div class="board-left-ul">
             <ul>
-              <li class="active">활동사진</li>
-              <li>가정통신문</li>
-              <li>채용게시판</li>
-              <li>출석</li>
+              <li @click="page=index+1" :class="{active: page == index +1}" v-for="(item, index) in asideList" :key="item">{{ item }}</li>
             </ul>
           </div>
         </div>
         <div class="board-right">
           <div class="border-div"></div>
           <div class="board-right-tit">
-            <h2>활동사진</h2>
+            <h2 v-if="page == 1">활동사진</h2>
+            <h2 v-if="page == 2">가정통신문</h2>
+            <h2 v-if="page == 3">채용게시판</h2>
             <button @click="goPage('boardWrite')" class="write-btn">글쓰기</button>
           </div>
           <div class="board-right-table-wrapper">
             <div class="gallery-wrap">
-              <div class="list-wrap">
+
+              <div class="list-wrap" v-if="page == 1" v-for="(item, index) in galleryList" :key="index" @click="goDetail(item.bno)">
                 <div class="img-wrapper">
-                  <img class="gallery-img" src="test.jpg" alt="">
+                  <img class="gallery-img" :src="`/image/${item.file_path}`" alt="">
                 </div>
                 <a href="">
                   <div class="gallery-tit-wrap">
-                    <span class="gallery-tit">[반포주민모임]이우시랑 가을나들이입니다</span>
+                    <span class="gallery-tit">{{ item.title }}</span>
                     <div class="gallery-subtit-area">
                       <p class="gallery-subtit">
                         <i class='bx bx-calendar-alt'></i>
-                        <span>2023-10-26</span>
+                        <span>{{ item.write_date }}</span>
                       </p>
                     </div>
                   </div>
                 </a>
               </div>
 
-              <div class="list-wrap" v-for="(item, index) in boardList" :key="index">
-                <div class="img-wrapper">
-                  <img class="gallery-img" src="test.jpg" alt="">
-                </div>
-                <a href="">
-                  <div class="gallery-tit-wrap">
-                    <span class="gallery-tit">[반포주민모임]이우시랑 가을나들이입니다</span>
-                    <div class="gallery-subtit-area">
-                      <p class="gallery-subtit">
-                        <i class='bx bx-calendar-alt'></i>
-                        <span>2023-10-26</span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="list-wrap">
-                <div class="img-wrapper">
-                  <img class="gallery-img" src="test.jpg" alt="">
-                </div>
-                <a href="">
-                  <div class="gallery-tit-wrap">
-                    <span class="gallery-tit">[반포주민모임]이우시랑 가을나들이입니다</span>
-                    <div class="gallery-subtit-area">
-                      <p class="gallery-subtit">
-                        <i class='bx bx-calendar-alt'></i>
-                        <span>2023-10-26</span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="list-wrap">
-                <div class="img-wrapper">
-                  <img class="gallery-img" src="test.jpg" alt="">
-                </div>
-                <a href="">
-                  <div class="gallery-tit-wrap">
-                    <span class="gallery-tit">[반포주민모임]이우시랑 가을나들이입니다</span>
-                    <div class="gallery-subtit-area">
-                      <p class="gallery-subtit">
-                        <i class='bx bx-calendar-alt'></i>
-                        <span>2023-10-26</span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="list-wrap">
-                <div class="img-wrapper">
-                  <img class="gallery-img" src="test.jpg" alt="">
-                </div>
-                <a href="">
-                  <div class="gallery-tit-wrap">
-                    <span class="gallery-tit">[반포주민모임]이우시랑 가을나들이입니다</span>
-                    <div class="gallery-subtit-area">
-                      <p class="gallery-subtit">
-                        <i class='bx bx-calendar-alt'></i>
-                        <span>2023-10-26</span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              <div class="list-wrap">
-                <div class="img-wrapper">
-                  <img class="gallery-img" src="test.jpg" alt="">
-                </div>
-                <a href="">
-                  <div class="gallery-tit-wrap">
-                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
-                    <div class="gallery-subtit-area">
-                      <p class="gallery-subtit">
-                        <i class='bx bx-calendar-alt'></i>
-                        <span>2023-10-26</span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              
-              <div class="list-wrap">
-                <div class="img-wrapper">
-                  <img class="gallery-img" src="test.jpg" alt="">
-                </div>
-                <a href="">
-                  <div class="gallery-tit-wrap">
-                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
-                    <div class="gallery-subtit-area">
-                      <p class="gallery-subtit">
-                        <i class='bx bx-calendar-alt'></i>
-                        <span>2023-10-26</span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              
-              <div class="list-wrap">
-                <div class="img-wrapper">
-                  <img class="gallery-img" src="test.jpg" alt="">
-                </div>
-                <a href="">
-                  <div class="gallery-tit-wrap">
-                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
-                    <div class="gallery-subtit-area">
-                      <p class="gallery-subtit">
-                        <i class='bx bx-calendar-alt'></i>
-                        <span>2023-10-26</span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              
-              <div class="list-wrap">
-                <div class="img-wrapper">
-                  <img class="gallery-img" src="test.jpg" alt="">
-                </div>
-                <a href="">
-                  <div class="gallery-tit-wrap">
-                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
-                    <div class="gallery-subtit-area">
-                      <p class="gallery-subtit">
-                        <i class='bx bx-calendar-alt'></i>
-                        <span>2023-10-26</span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              
-              <div class="list-wrap">
-                <div class="img-wrapper">
-                  <img class="gallery-img" src="test.jpg" alt="">
-                </div>
-                <a href="">
-                  <div class="gallery-tit-wrap">
-                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
-                    <div class="gallery-subtit-area">
-                      <p class="gallery-subtit">
-                        <i class='bx bx-calendar-alt'></i>
-                        <span>2023-10-26</span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              
-              <div class="list-wrap">
-                <div class="img-wrapper">
-                  <img class="gallery-img" src="test.jpg" alt="">
-                </div>
-                <a href="">
-                  <div class="gallery-tit-wrap">
-                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
-                    <div class="gallery-subtit-area">
-                      <p class="gallery-subtit">
-                        <i class='bx bx-calendar-alt'></i>
-                        <span>2023-10-26</span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
-              
-              <div class="list-wrap">
-                <div class="img-wrapper">
-                  <img class="gallery-img" src="test.jpg" alt="">
-                </div>
-                <a href="">
-                  <div class="gallery-tit-wrap">
-                    <p class="gallery-tit">[반포주민모임]이123132312123231우시랑 가을나들이입니다</p>
-                    <div class="gallery-subtit-area">
-                      <p class="gallery-subtit">
-                        <i class='bx bx-calendar-alt'></i>
-                        <span>2023-10-26</span>
-                      </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-
+              <!--가정통신문시작-->
+              <table class="user-info-price" v-if="page == 2">
+                <thead>
+                <tr>
+                  <th>번호</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>작성일</th>
+                  <th>조회수</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(item, index) in boardList" :key="item"
+                    class="board-right-table-tr" @click="goDetail(item.bno)">
+                  <td>{{ item.bno }}</td>
+                  <td>{{ item.title }}</td>
+                  <td>{{ item.author || '관리자' }}</td>
+                  <td>{{ item.write_date }}</td>
+                  <td>{{ item.hit || 0 }}</td>
+                </tr>
+                </tbody>
+              </table>
+              <!--가정통신문끝-->
+              <!--채용게시판시작-->
+              <table class="user-info-price" v-if="page == 3">
+                <thead>
+                <tr>
+                  <th>번호</th>
+                  <th>제목</th>
+                  <th>작성자</th>
+                  <th>작성일</th>
+                  <th>조회수</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(item, index) in boardList" :key="item"
+                    class="board-right-table-tr" @click="goDetail(item.bno)">
+                  <td>{{ item.bno }}</td>
+                  <td>{{ item.title }}</td>
+                  <td>{{ item.author || '관리자' }}</td>
+                  <td>{{ item.write_date }}</td>
+                  <td>{{ item.hit || 0 }}</td>
+                </tr>
+                </tbody>
+              </table>
+              <!--채용게시판끝-->
             </div>
           </div>
-<!--          페이지처리 시작-->
+          <!--페이지처리 시작-->
           <div class="pagination">
             <ul class="pagination-ul">
               <li>
@@ -268,7 +121,7 @@
               </li>
             </ul>
           </div>
-<!--          페이지처리 끝-->
+          <!--페이지처리 끝-->
         </div>
       </div>
     </div>
@@ -290,7 +143,8 @@ export default {
   data() {
     return {
       galleryList: [],
-      page:1
+      page:1,
+      asideList: ['활동사진','가정통신문','채용게시판']
     };
   },
 
@@ -313,7 +167,7 @@ export default {
     },
     goTop() {
       window.scrollTo(0, 0);
-    }
+    },
   },
 };
 </script>

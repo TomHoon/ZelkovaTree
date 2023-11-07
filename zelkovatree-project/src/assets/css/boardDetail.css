@@ -285,10 +285,14 @@ hr {
 .board-right-tit {
     border-bottom: 2px solid #ddd;
     margin-top: 40px;
+    width: 1120px;
     margin-bottom: 20px;
 }
 .board-right-tit h2{
     margin-bottom: 10px;
+}
+.board-right-table-wrapper {
+    width: 1120px;
 }
 .board-left-tit {
     background: #398eb4;
