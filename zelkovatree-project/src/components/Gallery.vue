@@ -40,7 +40,7 @@
 
               <div class="list-wrap" v-if="page == 1" v-for="(item, index) in galleryList" :key="index" @click="goDetail(item.bno)">
                 <div class="img-wrapper">
-                  <img class="gallery-img" :src="`/image/${item.file_path}`" alt="">
+                  <img class="gallery-img" :src="`/upload/${item.file_path}`" alt="">
                 </div>
                 <a href="">
                   <div class="gallery-tit-wrap">
@@ -112,7 +112,7 @@
                 </button>
               </li>
               <li v-for="(item, index) in 10" :key="item">
-                <button @click="getBoard(index + 1)" :class="{active: index + 1 == page}">{{ item }}</button>
+                <button @click="getBoard(index + 1)" :class="{active: index + 1 == pagination}">{{ item }}</button>
               </li>
               <li>
                 <button>
@@ -144,13 +144,17 @@ export default {
     return {
       galleryList: [],
       page:1,
-      asideList: ['활동사진','가정통신문','채용게시판']
+      asideList: ['활동사진','가정통신문','후원의손길'],
+      pagination: 1
     };
   },
 
   async mounted() {
     const { data } = await axios.post("/getBoardByPage", { page: this.page });
     this.galleryList = data;
+    if (this.$route.query?.activePage) {
+      this.page = this.$route.query?.activePage;
+    }
   },
 
   methods: {
@@ -161,9 +165,9 @@ export default {
       this.$router.push(pageName);
     },
     async getBoard(page) {
-      this.page = page;
-      const { data } = await axios.post("/getBoardByPage", { page: this.page });
-      this.boardList = data;
+      this.pagination = page;
+      const { data } = await axios.post("/getBoardByPage", { page: this.pagination });
+      this.galleryList = data;
     },
     goTop() {
       window.scrollTo(0, 0);

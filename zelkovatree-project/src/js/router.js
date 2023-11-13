@@ -6,6 +6,7 @@ import Board from '../components/Board.vue'
 import BoardDetail from '../components/BoardDetail.vue'
 import BoardWrite from '../components/BoardWrite.vue'
 import Gallery from '../components/Gallery.vue'
+import Update from '../components/Update.vue'
 
 const routes = [ 
     {
@@ -37,7 +38,13 @@ const routes = [
         path: '/gallery',
         name: 'Gallery',
         component: Gallery
-    }
+    },
+    {
+        path: '/update',
+        name: 'Update',
+        component: Update
+    },
+
 ];
 
 const router = createRouter({

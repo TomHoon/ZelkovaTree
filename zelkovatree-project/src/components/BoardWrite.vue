@@ -181,7 +181,7 @@ export default {
       //   const editor = this.$refs.quillRef.getEditor();
         // let test = editor.querySelector(".ql-blank");
         const result = await axios.post('/addBoard', formData);
-        this.editor.innerHTML += `<img style="max-width:807px; max-height:1077px; " src="image/${result.data}"></img><br><br><br><br>`;
+        this.editor.innerHTML += `<img style="max-width:807px; max-height:1077px; " src="upload/${result.data}"></img><br><br><br><br>`;
         // try {
         //   const result = await axios.post('http://localhost:4050/addBoard', formData);
         //   console.log('성공 시, 백엔드가 보내주는 데이터', result.data.url);

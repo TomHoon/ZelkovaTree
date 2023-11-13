@@ -218,7 +218,7 @@ hr {
 
 .main-icons-ul {
     position: fixed;
-    right:75px;
+    right:85px;
     bottom: 100px;
     display: flex;
     flex-direction: column;
@@ -237,7 +237,7 @@ hr {
     list-style: none;
     /*float: left;*/
     /*background: #ade8f4;*/
-    padding: 30px 40px;
+    padding: 20px 30px;
     border-radius: 80px;
     transition: all 0.2s linear;
     cursor: pointer;
@@ -295,7 +295,7 @@ hr {
     height: 340px;
     opacity: 0.2;
     --background-image: url(http://www.communitycenter.or.kr/theme/mir/img/index/main_sub_bg.png);
-    background-image: url(http://localhost:8080/img/footer-background.09d62d5a.png);
+    background-image:url("../img/footer-background.png");
     background-repeat: no-repeat;
     background-position: 50% 0;
     --background-size: 1900px;
@@ -350,7 +350,7 @@ hr {
     height: 340px;
     opacity: 0.2;
     --background-image: url(http://www.communitycenter.or.kr/theme/mir/img/index/main_sub_bg.png);
-    background-image: url(http://localhost:8080/img/footer-background.09d62d5a.png);
+    background-image:url("../img/footer-background.png");
     background-repeat: no-repeat;
     background-position: 50% 0;
     --background-size: 1900px;

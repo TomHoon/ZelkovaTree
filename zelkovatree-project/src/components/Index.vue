@@ -38,7 +38,7 @@
 			<div class="main-area">
 				<div class="main-icons">
 					<ul class="main-icons-ul">
-						<li @click="goPage('Guide', 0)">
+						<li @click="goPage('Guide', {activePage: 0})">
 							<a href="">
 								<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">
 									<path fill="#E8EAF6" d="M42 39L6 39 6 23 24 6 42 23z"></path>
@@ -52,7 +52,7 @@
 							</a>
 							<p>기관안내</p>
 						</li>
-            <li @click="goPage('Guide', 0)">
+            <li @click="goPage('Guide', {activePage:0})">
 							<a href="">
 								<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="50" height="50" viewBox="0 0 48 48">
 									<path fill="#64b5f6" d="M31,14h13v-4c0-2.209-1.791-4-4-4h-9V14z"></path>
@@ -64,7 +64,7 @@
 							</a>
 							<p>이용안내</p>
 						</li>
-            <li @click="goPage('Guide', 2)">
+            <li @click="goPage('Guide', {activePage:2})">
 							<a href="">
 								<img src="../assets/img/color-address.png" alt="" style="width:50px; height: 50px">
 							</a>
@@ -96,7 +96,7 @@
             <span class="notice1-subtit1" :class="{ activeTit : activeSubtit == 1 }" @click="activeSubtit = 1">공지사항</span>
             <span class="notice1-subtit2" :class="{ activeTit : activeSubtit == 2 }" @click="activeSubtit = 2">채용공고</span>
             <svg class="plus-btn" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
-                 viewBox="0,0,256,256">
+                 viewBox="0,0,256,256" @click="goPage('Board', activeSubtit == 1 ? {activePage:1}: {activePage:3})">
               <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                  stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
                  font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal">
@@ -113,7 +113,7 @@
           <!--					<div class="hr-area"></div>-->
           <div class="notice-ul" v-if="activeSubtit == 1">
             <ul>
-              <li v-for="(item, index) in noticeList" :key="index" @click="goPage('Board', 1)">
+              <li v-for="(item, index) in noticeList.slice(0, 5)" :key="index" @click="goPage('BoardDetail', {bno:item.bno})">
                 <p>
 										<span>
 											{{ item.title }}
@@ -130,7 +130,7 @@
           <p class="notice-p">
             <span class="notice1-subtit1" :class="{ activeTit : activeSubtit2 == 1 }" @click="activeSubtit2 = 1">가정통신문</span>
             <span class="notice1-subtit2" :class="{ activeTit : activeSubtit2 == 2 }" @click="activeSubtit2 = 2">후원의손길</span>
-            <svg class="plus-btn" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
+            <svg @click="goPage('Gallery', activeSubtit2 == 1 ? {activePage:2} : {activePage:3})" class="plus-btn" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30"
                  viewBox="0,0,256,256">
               <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                  stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
@@ -145,53 +145,13 @@
               </g>
             </svg>
           </p>
-          <!--					<div class="hr-area"></div>-->
-          <div class="notice-ul" v-if="activeSubtit2 == 1" @click="goPage('Board', 2)">
+          <!--가정통신문-->
+          <div class="notice-ul" v-if="activeSubtit2 == 1" @click="goPage('Board', {activePage:2})">
             <ul>
-              <li>
+              <li v-for="(item, index) in 5" :key=index>
                 <p>
 										<span>
-											[가정통신문] 10월 소식지 올려드립니다..
-										</span>
-                  <span class="notice-ul-date">
-											2023-10-09
-										</span>
-                </p>
-              </li>
-              <li>
-                <p>
-										<span>
-											[가정통신문] 9월 소식지 올려드립니다..
-										</span>
-                  <span class="notice-ul-date">
-											2023-10-09
-										</span>
-                </p>
-              </li>
-              <li>
-                <p>
-										<span>
-											[가정통신문] 8월 소식지 올려드립니다..
-										</span>
-                  <span class="notice-ul-date">
-											2023-10-09
-										</span>
-                </p>
-              </li>
-              <li>
-                <p>
-										<span>
-											[가정통신문] 7월 소식지 올려드립니다..
-										</span>
-                  <span class="notice-ul-date">
-											2023-10-09
-										</span>
-                </p>
-              </li>
-              <li>
-                <p>
-										<span>
-											[가정통신문] 6월 소식지 올려드립니다..
+											[가정통신문] {{index + 6}}월 소식지 올려드립니다..
 										</span>
                   <span class="notice-ul-date">
 											2023-10-09
@@ -265,8 +225,8 @@
       this.noticeList = data;
     },
 		methods: {
-			goPage(direction, activePage) {
-				this.$router.push({name: direction, query: {activePage: activePage}});
+			goPage(direction, query) {
+				this.$router.push({name: direction, query: query});
 			},
       goTop() {
         window.scrollTo(0, 0);
